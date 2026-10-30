@@ -13,6 +13,8 @@
 .portal-tab.is-active { border-color: var(--line); color: var(--lime); background: rgba(215,245,102,.05); }
 .portal-form { display: grid; gap: 15px; padding-top: 21px; }
 .portal-form[hidden] { display: none; }
+.portal-form h2 { margin: 0; font: 500 21px var(--font-display); }
+.otp-instructions { margin: 0; color: #a6a89e; font-size: 11px; line-height: 1.6; }
 .portal-form label, .proposal-form label { display: grid; gap: 7px; color: #c4c6bc; font-size: 10px; }
 .portal-form input, .proposal-form input, .proposal-form select, .proposal-form textarea { width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 0; background: #10110f; color: var(--paper); font-size: 12px; }
 .portal-form input:focus, .proposal-form input:focus, .proposal-form select:focus, .proposal-form textarea:focus { border-color: var(--lime); outline: none; }
@@ -25,6 +27,8 @@
 .portal-feedback[data-kind="success"] { color: var(--lime); }
 .client-dashboard { max-width: 1100px; margin: 0 auto; }
 .client-dashboard[hidden] { display: none; }
+.admin-dashboard { max-width: 1100px; margin: 0 auto; }
+.admin-dashboard[hidden] { display: none; }
 .dashboard-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
 .dashboard-heading h1 { font-size: clamp(47px, 6vw, 70px); }
 .dashboard-heading .button { flex: 0 0 auto; }
@@ -57,6 +61,29 @@
 .proposal-row p { margin: 0; color: #989b91; font-size: 10px; line-height: 1.5; }
 .proposal-status { padding: 6px 9px; border: 1px solid rgba(215,245,102,.25); color: var(--lime); font: 8px var(--font-mono); white-space: nowrap; }
 .proposal-date { margin-top: 5px; color: #777a71; font: 8px var(--font-mono); }
+.admin-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: -15px 0 24px; }
+.admin-toolbar > p { margin: 0; color: #a6a89e; font-size: 12px; }
+.admin-panel { padding: 23px; border: 1px solid var(--line); background: rgba(25,27,22,.72); }
+.admin-panel > .panel-heading h2 { display: flex; align-items: center; gap: 10px; }
+.admin-count { display: grid; min-width: 27px; height: 27px; place-content: center; border: 1px solid rgba(215,245,102,.25); color: var(--lime); font: 9px var(--font-mono); }
+.admin-client-list, .admin-proposal-list { margin-top: 19px; border-top: 1px solid var(--line); }
+.admin-client-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.admin-client-row h3, .admin-proposal-heading h3 { margin: 0 0 4px; font: 500 14px var(--font-display); }
+.admin-client-row p, .admin-client-meta, .admin-proposal-client, .admin-proposal-description { margin: 0; color: #96998f; font-size: 10px; line-height: 1.6; overflow-wrap: anywhere; }
+.admin-client-meta { text-align: right; }
+.admin-proposals { margin-top: 30px; }
+.admin-proposal-row { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.admin-proposal-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.admin-proposal-client { margin-top: 7px; color: var(--lime); }
+.admin-proposal-description { margin-top: 8px; }
+.admin-proposal-update { display: grid; grid-template-columns: minmax(160px, .7fr) 1.3fr auto; align-items: end; gap: 12px; margin-top: 15px; }
+.admin-proposal-update label { display: grid; gap: 6px; color: #c4c6bc; font-size: 9px; }
+.admin-proposal-update select, .admin-proposal-update textarea { width: 100%; min-height: 38px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 0; background: #10110f; color: var(--paper); font: 10px var(--font-body); }
+.admin-proposal-update select { color-scheme: dark; }
+.admin-proposal-update textarea { resize: vertical; }
+.admin-proposal-update select:focus, .admin-proposal-update textarea:focus { border-color: var(--lime); outline: none; }
+.admin-proposal-update .button { min-height: 38px; padding-inline: 12px; font-size: 10px; cursor: pointer; }
+.admin-proposal-update .button:disabled { cursor: wait; opacity: .6; }
 .portal-footer { display: flex; min-height: 54px; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); }
 .portal-footer a { color: var(--lime); }
 @media (max-width: 760px) {
@@ -70,6 +97,11 @@
   .dashboard-grid { grid-template-columns: 1fr; }
   .client-card { min-height: 250px; }
   .proposal-fields { grid-template-columns: 1fr; }
+  .admin-proposal-update { grid-template-columns: 1fr; }
+  .admin-proposal-update .button { justify-self: start; }
+  .admin-client-row { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .admin-client-meta { text-align: left; }
+  .admin-toolbar { align-items: flex-start; flex-direction: column; gap: 7px; }
 }
 @media (max-width: 410px) {
   .portal-back { font-size: 7px; }

@@ -27,12 +27,12 @@
           <p>Sign in to track proposals, or create an account to start a project.</p>
         </div>
         <div class="portal-form-card">
-          <div class="portal-tabs" role="tablist" aria-label="Client account">
+          <div class="portal-tabs" id="portal-tabs" role="tablist" aria-label="Client account">
             <button type="button" class="portal-tab is-active" id="login-tab" role="tab" aria-selected="true" aria-controls="login-panel">Sign in</button>
             <button type="button" class="portal-tab" id="register-tab" role="tab" aria-selected="false" aria-controls="register-panel">Create account</button>
           </div>
           <form id="login-panel" class="portal-form" role="tabpanel" aria-labelledby="login-tab">
-            <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+            <label>Email or admin username<input name="email" type="text" autocomplete="username" required maxlength="254" /></label>
             <label>Password<input name="password" type="password" autocomplete="current-password" required maxlength="128" /></label>
             <button class="button button-lime" type="submit">Sign in <span aria-hidden="true">↗</span></button>
             <button class="plain-button" id="resend-verification" type="button">Resend verification email</button>
@@ -44,8 +44,35 @@
             <label>Password <span class="optional">(at least 12 characters)</span><input name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128" /></label>
             <button class="button button-lime" type="submit">Create account <span aria-hidden="true">↗</span></button>
           </form>
+          <form id="admin-otp-panel" class="portal-form" role="tabpanel" aria-labelledby="admin-otp-title" hidden>
+            <h2 id="admin-otp-title">Check your admin email</h2>
+            <p class="otp-instructions">Enter the 6-digit sign-in code sent to your registered admin email. It expires in 10 minutes.</p>
+            <label>One-time code<input name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required /></label>
+            <button class="button button-lime" type="submit">Verify and continue <span aria-hidden="true">↗</span></button>
+            <button class="plain-button" id="back-to-login" type="button">Back to sign in</button>
+          </form>
           <p class="portal-feedback" id="auth-feedback" role="status" aria-live="polite"></p>
         </div>
+      </section>
+
+      <section class="admin-dashboard" id="admin-dashboard" hidden aria-labelledby="admin-dashboard-title">
+        <div class="dashboard-heading">
+          <div><p class="eyebrow">EZELABS ADMINISTRATION</p><h1 id="admin-dashboard-title">Admin dashboard<br /><span id="admin-name">Franklin Ezeh</span></h1></div>
+          <button class="button button-outline" id="admin-logout-button" type="button">Sign out <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="admin-toolbar">
+          <p>Review client accounts and manage incoming project proposals.</p>
+          <button class="plain-button" id="refresh-admin" type="button">Refresh data ↻</button>
+        </div>
+        <section class="admin-panel" aria-labelledby="admin-clients-title">
+          <div class="panel-heading"><div><p class="eyebrow">REGISTERED ACCOUNTS</p><h2 id="admin-clients-title">Clients <span id="admin-client-count" class="admin-count">0</span></h2></div></div>
+          <div id="admin-client-list" class="admin-client-list"><p class="proposal-empty">Loading clients…</p></div>
+        </section>
+        <section class="admin-panel admin-proposals" aria-labelledby="admin-proposals-title">
+          <div class="panel-heading"><div><p class="eyebrow">INCOMING WORK</p><h2 id="admin-proposals-title">Project proposals <span id="admin-proposal-count" class="admin-count">0</span></h2></div></div>
+          <div id="admin-proposal-list" class="admin-proposal-list"><p class="proposal-empty">Loading proposals…</p></div>
+          <p class="portal-feedback" id="admin-feedback" role="status" aria-live="polite"></p>
+        </section>
       </section>
 
       <section class="client-dashboard" id="dashboard-view" hidden aria-labelledby="dashboard-title">

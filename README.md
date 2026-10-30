@@ -18,15 +18,15 @@ The public portfolio is served by the same Express application as the client API
 
 The static portfolio is at `/`, and the account registration/sign-in and proposal dashboard are at `/portal`. Account creation requires a working SMTP configuration; email addresses must be verified before clients can sign in or submit proposals.
 
-## Promote an administrator
+## Set up the administrator account
 
-Register a client account, verify its email, then run:
+Register and verify the account that should receive admin access. With the deployed database configured in `DATABASE_URL`, run:
 
 ```powershell
-npm run db:promote-admin -- franklin@example.com
+npm run db:promote-admin -- ezehfranklin17@gmail.com franklinezeh17 "Franklin Ezeh"
 ```
 
-Only a verified account can be promoted. Admin API routes use the same authenticated session as the client portal.
+The command promotes that verified account, assigns the `franklinezeh17` admin username, and sets its display name. Never put the account password in this command or in source control. Admin sign-in accepts the username or account email, checks the password, then emails a one-time code to the account email. The administrator dashboard lists clients and proposals and allows proposal status and private-note updates. Ensure Brevo SMTP is configured in Render before testing OTP delivery.
 
 ## Deploy to Render with Neon
 
@@ -48,7 +48,9 @@ The app is configured for Brevo SMTP relay (`smtp-relay.brevo.com`, port `587`, 
 - `POST /api/auth/register` — create a client and send email verification
 - `POST /api/auth/verify-email` — verify a one-time email token
 - `POST /api/auth/resend-verification` — send another verification link
-- `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`
+- `POST /api/auth/login` — email/password for clients; admin username or email/password starts email OTP verification
+- `POST /api/auth/verify-admin-otp` — verifies the one-time admin sign-in code
+- `POST /api/auth/logout`, `GET /api/auth/me`
 - `POST /api/proposals`, `GET /api/proposals`, `GET /api/proposals/:id`
 - `GET /api/admin/clients`, `GET /api/admin/proposals`, `PATCH /api/admin/proposals/:id`
 

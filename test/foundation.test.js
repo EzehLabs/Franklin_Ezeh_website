@@ -4,7 +4,7 @@ import app from "../app.js";
 import { parseCookies } from "../middleware/cookies.js";
 import { verifyRequestOrigin } from "../middleware/origin.js";
 import { createOpaqueToken, formatClientNumber, hashToken } from "../lib/tokens.js";
-import { proposalSchema, registerSchema } from "../lib/validation.js";
+import { loginSchema, proposalSchema, registerSchema } from "../lib/validation.js";
 
 let server;
 let origin;
@@ -26,12 +26,27 @@ test("the public portfolio and client portal are served", async () => {
     ["/", "Ideas into"],
     ["/portal", "Your work"],
     ["/verify-email", "Verify your"],
-    ["/portal.js", "apiRequest"],
+    ["/portal.js", "verify-admin-otp"],
   ]) {
     const response = await fetch(new URL(route, origin));
     assert.equal(response.status, 200, route);
     assert.match(await response.text(), new RegExp(expected));
   }
+});
+
+test("admin login accepts email or username and validates OTP codes", () => {
+  assert.equal(loginSchema.parse({
+    email: "  FRANKLINEZEH17 ",
+    password: "valid-password",
+  }).email, "franklinezeh17");
+  assert.equal(loginSchema.parse({
+    email: "  EZEHFRANKLIN17@GMAIL.COM ",
+    password: "valid-password",
+  }).email, "ezehfranklin17@gmail.com");
+  assert.equal(loginSchema.safeParse({
+    email: "invalid username!",
+    password: "valid-password",
+  }).success, false);
 });
 
 test("server source and environment files are not exposed as static assets", async () => {

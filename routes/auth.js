@@ -2,12 +2,14 @@ import { Router } from "express";
 import bcrypt from "bcryptjs";
 import { pool } from "../db/pool.js";
 import { cookieOptions, requireAuth, sessionCookieName } from "../middleware/auth.js";
-import { sendVerificationEmail } from "../lib/mailer.js";
+import { randomInt } from "node:crypto";
+import { sendAdminLoginCode, sendVerificationEmail } from "../lib/mailer.js";
 import { createOpaqueToken, formatClientNumber, hashToken } from "../lib/tokens.js";
-import { loginSchema, registerSchema } from "../lib/validation.js";
+import { adminLoginOtpSchema, loginSchema, registerSchema } from "../lib/validation.js";
 
 const router = Router();
 const verificationLifetimeHours = 24;
+const adminOtpLifetimeMinutes = 10;
 
 function publicUser(user) {
   return {
@@ -179,8 +181,10 @@ router.post("/resend-verification", async (request, response) => {
 router.post("/login", async (request, response) => {
   const input = loginSchema.parse(request.body);
   const result = await pool.query(
-    `SELECT id, client_number, email, full_name, phone, role, email_verified_at, password_hash, created_at
-     FROM users WHERE email = $1`,
+    `SELECT id, client_number, email, username, full_name, phone, role,
+            email_verified_at, password_hash, created_at
+     FROM users
+     WHERE LOWER(email) = $1 OR LOWER(username) = $1`,
     [input.email],
   );
 
@@ -194,6 +198,108 @@ router.post("/login", async (request, response) => {
   if (!user.email_verified_at) {
     response.status(403).json({ error: "Verify your email before signing in." });
     return;
+  }
+
+  if (user.role === "admin") {
+    const challengeToken = createOpaqueToken();
+    const code = String(randomInt(0, 1_000_000)).padStart(6, "0");
+    const challengeHash = hashToken(challengeToken);
+    await pool.query("DELETE FROM admin_login_challenges WHERE user_id = $1", [user.id]);
+    await pool.query(
+      `INSERT INTO admin_login_challenges
+        (user_id, challenge_hash, code_hash, expires_at)
+       VALUES ($1, $2, $3, NOW() + ($4 * INTERVAL '1 minute'))`,
+      [user.id, challengeHash, hashToken(`${challengeToken}:${code}`), adminOtpLifetimeMinutes],
+    );
+    try {
+      await sendAdminLoginCode({ email: user.email, fullName: user.full_name, code });
+    } catch (error) {
+      await pool.query("DELETE FROM admin_login_challenges WHERE challenge_hash = $1", [
+        challengeHash,
+      ]);
+      console.error("Could not send admin sign-in code", { userId: user.id, error: error.message });
+      response.status(503).json({ error: "Could not send the admin sign-in code. Try again later." });
+      return;
+    }
+
+    response.json({
+      requiresOtp: true,
+      challengeToken,
+      message: "A sign-in code was sent to your registered admin email address.",
+    });
+    return;
+  }
+
+  await createSession(user, request, response);
+  response.json({ user: publicUser(user) });
+});
+
+router.post("/verify-admin-otp", async (request, response) => {
+  const input = adminLoginOtpSchema.parse(request.body);
+  const challengeHash = hashToken(input.challengeToken);
+  const client = await pool.connect();
+  let user;
+
+  try {
+    await client.query("BEGIN");
+    const result = await client.query(
+      `SELECT c.user_id, c.code_hash, c.attempts, c.expires_at,
+              u.id, u.client_number, u.email, u.full_name, u.phone, u.role,
+              u.email_verified_at, u.created_at
+       FROM admin_login_challenges c
+       JOIN users u ON u.id = c.user_id
+       WHERE c.challenge_hash = $1 AND c.expires_at > NOW()
+         AND u.role = 'admin' AND u.email_verified_at IS NOT NULL
+       FOR UPDATE OF c`,
+      [challengeHash],
+    );
+    if (!result.rowCount) {
+      await client.query("ROLLBACK");
+      response.status(401).json({ error: "This sign-in code is invalid or expired. Sign in again to request a new one." });
+      return;
+    }
+
+    const challenge = result.rows[0];
+    if (challenge.attempts >= 5) {
+      await client.query("DELETE FROM admin_login_challenges WHERE challenge_hash = $1", [
+        challengeHash,
+      ]);
+      await client.query("COMMIT");
+      response.status(429).json({ error: "Too many incorrect codes. Sign in again to request a new code." });
+      return;
+    }
+
+    if (challenge.code_hash !== hashToken(`${input.challengeToken}:${input.code}`)) {
+      const attempts = challenge.attempts + 1;
+      if (attempts >= 5) {
+        await client.query("DELETE FROM admin_login_challenges WHERE challenge_hash = $1", [
+          challengeHash,
+        ]);
+      } else {
+        await client.query(
+          "UPDATE admin_login_challenges SET attempts = $2 WHERE challenge_hash = $1",
+          [challengeHash, attempts],
+        );
+      }
+      await client.query("COMMIT");
+      response.status(401).json({
+        error: attempts >= 5
+          ? "Too many incorrect codes. Sign in again to request a new code."
+          : "That code is incorrect.",
+      });
+      return;
+    }
+
+    await client.query("DELETE FROM admin_login_challenges WHERE challenge_hash = $1", [
+      challengeHash,
+    ]);
+    await client.query("COMMIT");
+    user = challenge;
+  } catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
+  } finally {
+    client.release();
   }
 
   await createSession(user, request, response);
