@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10110f" />
+    <meta name="description" content="Sign in to your EzehLabs client portal to manage project proposals." />
+    <title>Client portal — EzehLabs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/portal.css" />
+    <script src="/portal.js" defer></script>
+  </head>
+  <body class="portal-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="portal-header section-shell">
+      <a class="wordmark" href="/"><span class="wordmark-mark" aria-hidden="true">F<span>.</span></span><span>EZEHLABS<br />CLIENT PORTAL</span></a>
+      <a class="portal-back" href="/">← BACK TO PORTFOLIO</a>
+    </header>
+    <main class="portal-main section-shell" id="main">
+      <section class="portal-auth" id="auth-view" aria-labelledby="auth-title">
+        <div class="portal-intro">
+          <p class="eyebrow"><span class="status-dot"></span> A BETTER WAY TO WORK TOGETHER</p>
+          <h1 id="auth-title">Your work,<br /><span>all in one place.</span></h1>
+          <p>Sign in to track proposals, or create an account to start a project.</p>
+        </div>
+        <div class="portal-form-card">
+          <div class="portal-tabs" role="tablist" aria-label="Client account">
+            <button type="button" class="portal-tab is-active" id="login-tab" role="tab" aria-selected="true" aria-controls="login-panel">Sign in</button>
+            <button type="button" class="portal-tab" id="register-tab" role="tab" aria-selected="false" aria-controls="register-panel">Create account</button>
+          </div>
+          <form id="login-panel" class="portal-form" role="tabpanel" aria-labelledby="login-tab">
+            <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+            <label>Password<input name="password" type="password" autocomplete="current-password" required maxlength="128" /></label>
+            <button class="button button-lime" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+            <button class="plain-button" id="resend-verification" type="button">Resend verification email</button>
+          </form>
+          <form id="register-panel" class="portal-form" role="tabpanel" aria-labelledby="register-tab" hidden>
+            <label>Full name<input name="fullName" autocomplete="name" required maxlength="120" /></label>
+            <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+            <label>Phone <span class="optional">(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="30" /></label>
+            <label>Password <span class="optional">(at least 12 characters)</span><input name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128" /></label>
+            <button class="button button-lime" type="submit">Create account <span aria-hidden="true">↗</span></button>
+          </form>
+          <p class="portal-feedback" id="auth-feedback" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="client-dashboard" id="dashboard-view" hidden aria-labelledby="dashboard-title">
+        <div class="dashboard-heading">
+          <div><p class="eyebrow">YOUR EZELABS SPACE</p><h1 id="dashboard-title">Welcome back,<br /><span id="client-name">client.</span></h1></div>
+          <button class="button button-outline" id="logout-button" type="button">Sign out <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="dashboard-grid">
+          <aside class="client-card" aria-label="Client identity card">
+            <div class="client-card-top"><span class="client-card-brand">E<span>.</span> EZELABS</span><span class="client-card-status"><i></i> VERIFIED CLIENT</span></div>
+            <div class="client-card-person"><span>CLIENT</span><strong id="card-name">—</strong></div>
+            <div class="client-card-bottom"><div><span>CLIENT ID</span><strong id="client-id">—</strong></div><div><span>MEMBER SINCE</span><strong id="member-since">—</strong></div><div class="client-card-symbol" aria-hidden="true">E.</div></div>
+            <p class="client-card-note">Your account is private. Your details are only shared with EzehLabs.</p>
+          </aside>
+          <section class="proposal-panel" aria-labelledby="proposal-title">
+            <div class="panel-heading"><div><p class="eyebrow">LET’S GET STARTED</p><h2 id="proposal-title">Tell me what you need.</h2></div></div>
+            <form id="proposal-form" class="proposal-form">
+              <label>Service
+                <select name="serviceType" required>
+                  <option value="" selected disabled>Choose an area</option>
+                  <option>Web development</option><option>AI &amp; computer vision</option>
+                  <option>IoT &amp; embedded systems</option><option>Networking &amp; security</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>Project description<textarea name="description" rows="4" minlength="1" maxlength="5000" required placeholder="What are you hoping to build or solve?"></textarea></label>
+              <div class="proposal-fields">
+                <label>Budget range<input name="budgetRange" required maxlength="80" placeholder="e.g. ₦100,000–₦250,000" /></label>
+                <label>Ideal timeline<input name="timeline" required maxlength="80" placeholder="e.g. 4–6 weeks" /></label>
+              </div>
+              <button class="button button-lime" type="submit">Send project proposal <span aria-hidden="true">↗</span></button>
+              <p class="portal-feedback" id="proposal-feedback" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+        <section class="proposal-history" aria-labelledby="history-title">
+          <div class="panel-heading"><div><p class="eyebrow">KEEPING THINGS MOVING</p><h2 id="history-title">Your proposals</h2></div><button class="plain-button" id="refresh-proposals" type="button">Refresh ↻</button></div>
+          <div id="proposal-list" class="proposal-list"><p class="proposal-empty">Loading your proposals…</p></div>
+        </section>
+      </section>
+    </main>
+    <footer class="portal-footer section-shell"><span>PRIVATE CLIENT ACCESS</span><a href="/">EZEHLABS ↗</a></footer>
+  </body>
+</html>
