@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 132" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="20" y1="8" x2="146" y2="125" gradientUnits="userSpaceOnUse"><stop stop-color="#213b34"/><stop offset="1" stop-color="#111b18"/></linearGradient>
+    <linearGradient id="card" x1="59" y1="24" x2="118" y2="111" gradientUnits="userSpaceOnUse"><stop stop-color="#f0f3e8"/><stop offset="1" stop-color="#cad7ca"/></linearGradient>
+  </defs>
+  <rect width="164" height="132" rx="8" fill="url(#bg)"/>
+  <path d="M0 104h164M22 0v132M140 0v132" stroke="#d7f566" stroke-opacity=".09"/>
+  <rect x="49" y="19" width="70" height="94" rx="5" fill="#08100e" fill-opacity=".4" transform="rotate(5 49 19)"/>
+  <rect x="47" y="17" width="70" height="94" rx="5" fill="url(#card)"/>
+  <path d="M57 30h25" stroke="#69766b" stroke-width="2"/>
+  <circle cx="105" cy="31" r="7" fill="#d9e8d1"/>
+  <path d="M102 31l2 2 4-5" stroke="#32765c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="57" y="49" fill="#455348" font-family="Arial,sans-serif" font-size="5" letter-spacing="1">DUES PAYMENT</text>
+  <text x="57" y="65" fill="#17211b" font-family="Arial,sans-serif" font-size="13" font-weight="700">₦ 8,500</text>
+  <path d="M57 75h49M57 81h38M57 88h44" stroke="#a9b5a9" stroke-width="2" stroke-linecap="round"/>
+  <rect x="57" y="96" width="49" height="9" rx="2" fill="#cfe9d5"/>
+  <text x="65" y="102.5" fill="#32765c" font-family="Arial,sans-serif" font-size="5" font-weight="700" letter-spacing=".7">VERIFIED</text>
+</svg>

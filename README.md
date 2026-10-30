@@ -6,7 +6,7 @@ The public portfolio is served by the same Express application as the client API
 
 - Node.js 20 or newer
 - Docker Desktop for the local PostgreSQL option, or an existing PostgreSQL database
-- SMTP credentials to deliver account-verification emails
+- Brevo SMTP credentials and a verified sender to deliver account-verification emails
 
 ## Local setup
 
@@ -35,10 +35,12 @@ Only a verified account can be promoted. Admin API routes use the same authentic
 3. In the Render service's environment settings, add the unsynced values:
    - `DATABASE_URL`: Neon’s pooled connection string. Keep its credentials private.
    - `APP_ORIGIN`: the deployed service origin, such as `https://your-service.onrender.com`, with no trailing slash.
-   - `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD`, and `MAIL_FROM`: credentials and sender address for your email provider. Registration and email verification need working SMTP settings.
+   - `SMTP_USER`: your Brevo SMTP login (not your Brevo account password).
+   - `SMTP_PASSWORD`: a Brevo SMTP key. Create one under Brevo **Transactional > Configuration > SMTP**; do not use a general API key.
+   - `MAIL_FROM`: a sender address verified in Brevo.
 4. Deploy or restart the service. Its start command applies pending database migrations before starting Express; `/api/health` checks both the app and Neon connection.
 
-The Blueprint uses Render's free web-service plan. Free web services can spin down when idle, so the first request after inactivity may take longer. Neon free-plan limits and retention are controlled by Neon; review its current terms and keep database credentials only in Render's environment settings. The site and portal are served from the same origin.
+The app is configured for Brevo SMTP relay (`smtp-relay.brevo.com`, port `587`, STARTTLS). Keep the SMTP login and key only in Render's environment settings. The Blueprint uses Render's free web-service plan. Free web services can spin down when idle, so the first request after inactivity may take longer. Neon free-plan limits and retention are controlled by Neon; review its current terms and keep database credentials only in Render's environment settings. The site and portal are served from the same origin.
 
 ## API
 

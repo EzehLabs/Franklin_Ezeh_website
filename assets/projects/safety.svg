@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 132" fill="none">
+  <defs><linearGradient id="bg" x1="12" y1="3" x2="149" y2="128" gradientUnits="userSpaceOnUse"><stop stop-color="#463027"/><stop offset="1" stop-color="#1b1715"/></linearGradient><linearGradient id="unit" x1="54" y1="26" x2="109" y2="107" gradientUnits="userSpaceOnUse"><stop stop-color="#48443c"/><stop offset="1" stop-color="#21231f"/></linearGradient></defs>
+  <rect width="164" height="132" rx="8" fill="url(#bg)"/>
+  <circle cx="82" cy="67" r="46" stroke="#ff9774" stroke-opacity=".12"/><circle cx="82" cy="67" r="35" stroke="#ff9774" stroke-opacity=".12"/>
+  <rect x="49" y="22" width="66" height="88" rx="8" fill="url(#unit)" stroke="#ff9774" stroke-opacity=".62"/>
+  <circle cx="82" cy="35" r="5" fill="#ff9774"/><circle cx="82" cy="35" r="9" stroke="#ff9774" stroke-opacity=".38"/>
+  <rect x="58" y="49" width="48" height="37" rx="3" fill="#111915" stroke="#ff9774" stroke-opacity=".3"/>
+  <text x="64" y="60" fill="#9ea99d" font-family="Arial,sans-serif" font-size="5" letter-spacing=".5">SENSOR STATUS</text>
+  <text x="64" y="70" fill="#a8e1a2" font-family="Arial,sans-serif" font-size="7" font-weight="700">ALL CLEAR</text>
+  <path d="M64 77h18" stroke="#617365" stroke-width="2" stroke-linecap="round"/><path d="M64 81h26" stroke="#ff9774" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="66" cy="97" r="2" fill="#ff9774"/><circle cx="74" cy="97" r="2" fill="#5b655b"/><circle cx="82" cy="97" r="2" fill="#5b655b"/>
+</svg>

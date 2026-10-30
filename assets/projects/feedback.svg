@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 132" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="164" y2="132" gradientUnits="userSpaceOnUse"><stop stop-color="#483326"/><stop offset="1" stop-color="#1c1715"/></linearGradient><linearGradient id="bubble" x1="42" y1="27" x2="122" y2="104" gradientUnits="userSpaceOnUse"><stop stop-color="#544333"/><stop offset="1" stop-color="#29231e"/></linearGradient></defs>
+  <rect width="164" height="132" rx="8" fill="url(#bg)"/>
+  <circle cx="126" cy="24" r="35" fill="#f5a46f" fill-opacity=".07"/>
+  <path d="M39 31a8 8 0 0 1 8-8h70a8 8 0 0 1 8 8v54a8 8 0 0 1-8 8H78l-22 16V93h-9a8 8 0 0 1-8-8V31Z" fill="url(#bubble)" stroke="#f5a46f" stroke-opacity=".68"/>
+  <circle cx="58" cy="43" r="7" fill="#f5a46f" fill-opacity=".2" stroke="#f5a46f" stroke-opacity=".8"/>
+  <path d="M55 43h6m-3-3v6" stroke="#ffd8b9" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="71" y="41" fill="#e6b28f" font-family="Arial,sans-serif" font-size="5" letter-spacing=".8">PRIVATE MESSAGE</text>
+  <path d="M54 59h54M54 66h42M54 73h47" stroke="#d4c2b1" stroke-opacity=".58" stroke-width="3" stroke-linecap="round"/>
+  <rect x="54" y="80" width="53" height="12" rx="3" fill="#382b24" stroke="#f5a46f" stroke-opacity=".35"/>
+  <path d="M63 84v-1a3 3 0 0 1 6 0v1m-7 0h8v5h-8v-5Z" stroke="#ffc28f" stroke-width="1"/>
+  <text x="76" y="88" fill="#ffc28f" font-family="Arial,sans-serif" font-size="5" letter-spacing=".5">ANONYMOUS</text>
+</svg>

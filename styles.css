@@ -155,9 +155,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .network-node { position: absolute; z-index: 1; display: grid; min-width: 42px; min-height: 27px; place-content: center; padding: 0 5px; border: 1px solid rgba(136,199,245,.56); background: #182534; color: #e0f0fb; font: 6px var(--font-mono); }.node-core { top: 40%; left: 42%; min-width: 54px; min-height: 34px; background: #204059; color: var(--project-accent); }.node-router { top: 5%; left: 10%; }.node-switch { top: 6%; right: 8%; }.node-server { bottom: 6%; left: 9%; }.node-client { right: 7%; bottom: 6%; }
 .network-line { position: absolute; height: 1px; background: rgba(136,199,245,.66); transform-origin: left center; }.line-a { top: 33%; left: 26%; width: 81px; transform: rotate(22deg); }.line-b { top: 33%; left: 58%; width: 76px; transform: rotate(-18deg); }.line-c { top: 61%; left: 26%; width: 83px; transform: rotate(-25deg); }.line-d { top: 61%; left: 58%; width: 79px; transform: rotate(25deg); }.network-vlan { position: absolute; right: 2%; bottom: -9px; color: #a7bbca; font: 5px var(--font-mono); white-space: nowrap; }
 .project-info { padding-top: 17px; }
-.project-info > div:first-child { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.project-info > div.project-heading:first-child { display: flex; min-height: 67px; align-items: center; justify-content: space-between; gap: 14px; }
+.project-heading-copy { min-width: 0; }
 .project-kind { margin: 0; color: var(--lime); font-size: 8px; white-space: nowrap; }
-.project-info h3 { margin: 0; text-align: right; font: 500 clamp(17px, 2vw, 23px) var(--font-display); letter-spacing: -.045em; }
+.project-info h3 { margin: 5px 0 0; text-align: left; font: 500 clamp(17px, 2vw, 23px) var(--font-display); letter-spacing: -.045em; }
+.project-thumb { flex: 0 0 82px; width: 82px; height: 66px; overflow: hidden; border: 1px solid rgba(240,240,233,.13); background: #171a16; transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+.project-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease, filter .35s ease; }
+.project-card:hover .project-thumb, .project-card:focus-within .project-thumb { transform: translateY(-2px); border-color: rgba(215,245,102,.48); box-shadow: 0 7px 20px rgba(0,0,0,.2); }
+.project-card:hover .project-thumb img, .project-card:focus-within .project-thumb img { transform: scale(1.08); filter: saturate(1.12); }
 .project-info > p { max-width: 465px; min-height: 41px; margin: 13px 0; color: #a6a89e; font-size: 12px; line-height: 1.65; }
 .project-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -245,8 +250,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .hero { min-height: 750px; grid-template-columns: 1.1fr .9fr; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 22px; }
   .hero h1 { font-size: clamp(62px, 9vw, 102px); }
-  .project-info > div:first-child { align-items: flex-start; flex-direction: column; gap: 8px; }
-  .project-info h3 { text-align: left; }
+  .project-info > div.project-heading:first-child { min-height: 78px; align-items: center; flex-direction: row; }
+  .project-thumb { flex-basis: 76px; width: 76px; height: 62px; }
   .project-info > p { min-height: 60px; }
   .about-facts { grid-template-columns: repeat(2, 1fr); }
   .fact:nth-child(2) { border-right: 0; }.fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -301,8 +306,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .code-project > span { font-size: 7px; }
   .code-project > strong { font-size: clamp(18px, 5vw, 25px); }
   .code-project > a { min-height: 31px; gap: 8px; padding-inline: 8px; font-size: 7px; }
-  .project-info > div:first-child { flex-direction: row; align-items: baseline; }
-  .project-info h3 { text-align: right; }
+  .project-info > div.project-heading:first-child { min-height: 67px; align-items: center; flex-direction: row; }
+  .project-thumb { flex-basis: 70px; width: 70px; height: 58px; }
   .project-info > p { min-height: 0; }
   .service-row { min-height: 120px; grid-template-columns: 28px 1fr 19px; gap: 12px; }
   .service-number { padding-top: 25px; }

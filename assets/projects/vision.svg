@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 132" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="164" y2="132" gradientUnits="userSpaceOnUse"><stop stop-color="#353c2a"/><stop offset="1" stop-color="#171a14"/></linearGradient><linearGradient id="glass" x1="57" y1="46" x2="112" y2="68" gradientUnits="userSpaceOnUse"><stop stop-color="#a8b99a"/><stop offset="1" stop-color="#475b48"/></linearGradient></defs>
+  <rect width="164" height="132" rx="8" fill="url(#bg)"/>
+  <path d="M0 30h164M0 66h164M0 102h164M25 0v132M82 0v132M139 0v132" stroke="#d7f566" stroke-opacity=".08"/>
+  <path d="M31 83h102l-8 16H39l-8-16Z" fill="#727c50"/>
+  <path d="m51 82 12-24h40l17 24H51Z" fill="url(#glass)" stroke="#d7f566" stroke-opacity=".5"/>
+  <path d="M40 77h84a11 11 0 0 1 11 11v9H29v-9a11 11 0 0 1 11-11Z" fill="#78805a" stroke="#d7f566" stroke-opacity=".5"/>
+  <circle cx="49" cy="96" r="9" fill="#151914" stroke="#bacb84" stroke-width="3"/><circle cx="111" cy="96" r="9" fill="#151914" stroke="#bacb84" stroke-width="3"/>
+  <path d="M59 83v-13h45v13" stroke="#d7f566" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <path d="M54 68V57h11M103 68V57H92M54 81V92h11M103 81v11H92" stroke="#d7f566" stroke-width="1.5"/>
+  <rect x="61" y="73" width="40" height="13" rx="2" fill="#11160f" stroke="#d7f566" stroke-opacity=".8"/>
+  <text x="67" y="82" fill="#d7f566" font-family="Arial,sans-serif" font-size="6" letter-spacing=".7">PLATE FOUND</text>
+</svg>

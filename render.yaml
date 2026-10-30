@@ -22,7 +22,7 @@ services:
       - key: BCRYPT_ROUNDS
         value: "12"
       - key: SMTP_HOST
-        sync: false
+        value: smtp-relay.brevo.com
       - key: SMTP_PORT
         value: "587"
       - key: SMTP_SECURE
