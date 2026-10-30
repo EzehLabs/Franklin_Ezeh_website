@@ -28,6 +28,18 @@ npm run db:promote-admin -- franklin@example.com
 
 Only a verified account can be promoted. Admin API routes use the same authenticated session as the client portal.
 
+## Deploy to Render with Neon
+
+1. Push this repository to GitHub and create a Neon PostgreSQL project.
+2. In Render, choose **New > Blueprint** and select this repository. Render reads `render.yaml` and creates the Node web service.
+3. In the Render service's environment settings, add the unsynced values:
+   - `DATABASE_URL`: Neon’s pooled connection string. Keep its credentials private.
+   - `APP_ORIGIN`: the deployed service origin, such as `https://your-service.onrender.com`, with no trailing slash.
+   - `SMTP_HOST`, `SMTP_USER`, `SMTP_PASSWORD`, and `MAIL_FROM`: credentials and sender address for your email provider. Registration and email verification need working SMTP settings.
+4. Deploy or restart the service. Its start command applies pending database migrations before starting Express; `/api/health` checks both the app and Neon connection.
+
+The Blueprint uses Render's free web-service plan. Free web services can spin down when idle, so the first request after inactivity may take longer. Neon free-plan limits and retention are controlled by Neon; review its current terms and keep database credentials only in Render's environment settings. The site and portal are served from the same origin.
+
 ## API
 
 - `GET /api/health` — application and PostgreSQL readiness

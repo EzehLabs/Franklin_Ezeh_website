@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: franklin-ezeh-portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run db:migrate && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: "true"
+      - key: APP_ORIGIN
+        sync: false
+      - key: TRUST_PROXY
+        value: "true"
+      - key: SESSION_TTL_DAYS
+        value: "7"
+      - key: BCRYPT_ROUNDS
+        value: "12"
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_SECURE
+        value: "false"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: MAIL_FROM
+        sync: false
