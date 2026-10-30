@@ -103,9 +103,9 @@
           <p class="section-aside">A selection of projects across software, machine learning, connected systems, and network design.</p>
         </div>
         <div class="filter-row" role="group" aria-label="Filter projects">
-          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All work <span>06</span></button>
-          <button class="filter-chip" type="button" data-filter="web" aria-pressed="false">Web <span>02</span></button>
-          <button class="filter-chip" type="button" data-filter="ai" aria-pressed="false">AI &amp; vision <span>02</span></button>
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All work <span>08</span></button>
+          <button class="filter-chip" type="button" data-filter="web" aria-pressed="false">Web <span>03</span></button>
+          <button class="filter-chip" type="button" data-filter="ai" aria-pressed="false">AI &amp; vision <span>03</span></button>
           <button class="filter-chip" type="button" data-filter="iot" aria-pressed="false">IoT <span>01</span></button>
           <button class="filter-chip" type="button" data-filter="networking" aria-pressed="false">Networking <span>01</span></button>
         </div>
@@ -119,7 +119,7 @@
               <span class="art-index">PAY · VERIFY · RECEIPT</span>
             </div>
             <div class="project-info">
-              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">FINAL-YEAR PROJECT</p><h3>DeptPay</h3></div><div class="project-thumb"><img src="assets/projects/deptpay.svg" alt="Compact payment dashboard illustration" loading="lazy" decoding="async" /></div></div>
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">FINAL-YEAR PROJECT</p><h3>DeptPay</h3></div><div class="project-thumb"><img src="assets/projects/deptpay.jpg" alt="DeptPay departmental dues and verifiable receipt webpage" loading="lazy" decoding="async" /></div></div>
               <p>A secure payment gateway for departmental dues, with role-based portals, audit trails, and automated receipts.</p>
               <div class="project-bottom"><div class="tag-list"><span>React</span><span>PostgreSQL</span><span>Paystack</span></div><a class="arrow-link" href="https://github.com/EzehLabs/Deptpay" target="_blank" rel="noreferrer" aria-label="View DeptPay source code">↗</a></div>
             </div>
@@ -135,22 +135,37 @@
               <span class="art-index">IMAGE · WEBCAM · REAL TIME</span>
             </div>
             <div class="project-info">
-              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">MACHINE LEARNING</p><h3>License plate detector</h3></div><div class="project-thumb"><img src="assets/projects/vision.svg" alt="Car with a machine-learning license-plate detection frame" loading="lazy" decoding="async" /></div></div>
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">MACHINE LEARNING</p><h3>License plate detector</h3></div><div class="project-thumb"><img src="assets/projects/license-plate.jpg" alt="License plate detector marking a plate on a red car" loading="lazy" decoding="async" /></div></div>
               <p>Trained YOLOv8 on a Kaggle dataset and deployed image upload and live webcam detection in a Python web app.</p>
               <div class="project-bottom"><div class="tag-list"><span>YOLOv8</span><span>Python</span><span>Computer vision</span></div><a class="arrow-link" href="#contact" aria-label="Ask about the license plate detector">↗</a></div>
             </div>
             <details class="project-detail"><summary>Project notes <span aria-hidden="true">+</span></summary><p><strong>Challenge</strong> — detect licence plates from an uploaded image or a live webcam feed.</p><p><strong>Approach</strong> — trained YOLOv8 on a Kaggle dataset and packaged detection in a Python web app, with inference running in about half a second per image on a laptop.</p></details>
           </article>
 
+          <article class="project-card" data-category="ai">
+            <div class="project-art-panel project-code-panel code-traffic" aria-label="Illustrated street-scene object detection project cover">
+              <span class="code-index">03 — COMPUTER VISION</span>
+              <span class="art-project-label"><span>YOLO · PYTHON</span><strong>See the<br />whole scene.</strong></span>
+              <div class="art-street" aria-hidden="true"><span class="street-building"></span><span class="street-road"></span><i class="traffic-box traffic-box-one"></i><i class="traffic-box traffic-box-two"></i><b>OBJECTS DETECTED</b></div>
+              <span class="art-index">IMAGE · DETECT · LABEL</span>
+            </div>
+            <div class="project-info">
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">COMPUTER VISION</p><h3>Traffic scene detection</h3></div><div class="project-thumb"><img src="assets/projects/traffic-detection.jpg" alt="Object detection bounding boxes on a city street scene" loading="lazy" decoding="async" /></div></div>
+              <p>A computer-vision demo that detects and marks objects in street-scene images.</p>
+              <div class="project-bottom"><div class="tag-list"><span>YOLO</span><span>Python</span><span>OpenCV</span></div><a class="arrow-link" href="#contact" aria-label="Ask about traffic scene detection">↗</a></div>
+            </div>
+            <details class="project-detail"><summary>Project notes <span aria-hidden="true">+</span></summary><p><strong>Focus</strong> — apply object detection to street-scene images and visualize predicted classes with bounding boxes.</p></details>
+          </article>
+
           <article class="project-card" data-category="iot">
             <div class="project-art-panel project-code-panel code-iot" aria-label="Illustrated fire and gas alarm project cover with a sensor status display">
-              <span class="code-index">03 — CONNECTED SYSTEMS</span>
+              <span class="code-index">04 — CONNECTED SYSTEMS</span>
               <span class="art-project-label"><span>ESP32 · IOT SENSORS</span><strong>Safety,<br />connected.</strong></span>
               <div class="art-device" aria-hidden="true"><span class="device-led"></span><span class="device-screen"><small>SENSOR STATUS</small><b>ALL CLEAR</b><i>GAS&nbsp; ▰▰▰▱</i><i>HEAT ▰▰▱▱</i></span><span class="device-port"></span></div>
               <span class="art-index">SENSE · FILTER · ALERT</span>
             </div>
             <div class="project-info">
-              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">RESEARCH PROJECT</p><h3>Smart fire &amp; gas alarm</h3></div><div class="project-thumb"><img src="assets/projects/safety.svg" alt="Connected fire and gas sensor device" loading="lazy" decoding="async" /></div></div>
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">RESEARCH PROJECT</p><h3>Smart fire &amp; gas alarm</h3></div><div class="project-thumb"><img src="assets/projects/fire-gas-alarm.jpg" alt="Prototype fire and gas monitoring circuit with its alert light and sensor display" loading="lazy" decoding="async" /></div></div>
               <p>An ESP32-based safety system with five alert levels, false-alarm filtering, remote notifications, and camera recording.</p>
               <div class="project-bottom"><div class="tag-list"><span>ESP32</span><span>IoT sensors</span><span>Blynk</span></div><a class="arrow-link" href="#contact" aria-label="Ask about the smart fire and gas alarm">↗</a></div>
             </div>
@@ -159,14 +174,14 @@
 
           <article class="project-card" data-category="ai">
             <div class="project-art-panel project-code-panel code-weed" aria-label="Illustrated crop analysis project cover with a leaf and machine learning detection markers">
-              <span class="code-index">04 — DEEP LEARNING</span>
+              <span class="code-index">05 — DEEP LEARNING</span>
               <span class="art-project-label"><span>RESNET50 · YOLO</span><strong>Grow<br />smarter.</strong></span>
               <span class="art-leaf" aria-hidden="true"><i></i><i></i><i></i><b></b></span>
               <span class="art-plant-detection" aria-hidden="true"><b>MODEL OUTPUT</b><span>WEED / DETECTED</span><i></i><small>CONFIDENCE · HIGH</small></span>
               <span class="art-index">IDENTIFY · CLASSIFY · GROW</span>
             </div>
             <div class="project-info">
-              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">DEEP LEARNING</p><h3>Weed detector</h3></div><div class="project-thumb"><img src="assets/projects/weed.svg" alt="Leaf framed by a machine-learning detection box" loading="lazy" decoding="async" /></div></div>
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">DEEP LEARNING</p><h3>Weed detector</h3></div><div class="project-thumb"><img src="assets/projects/crop-disease.jpg" alt="Close-up of a leaf with a crop-model detection box" loading="lazy" decoding="async" /></div></div>
               <p>A ResNet50 and YOLO weed-detection model served through a lightweight Streamlit web app.</p>
               <div class="project-bottom"><div class="tag-list"><span>ResNet50</span><span>YOLO</span><span>Streamlit</span></div><a class="arrow-link" href="https://github.com/EzehLabs/Weed-detector" target="_blank" rel="noreferrer" aria-label="View Weed Detector source code">↗</a></div>
             </div>
@@ -174,8 +189,23 @@
           </article>
 
           <article class="project-card" data-category="web">
+            <div class="project-art-panel project-code-panel code-food" aria-label="Illustrated food-ordering app project cover">
+              <span class="code-index">07 — FOOD TECH / WEB</span>
+              <span class="art-project-label"><span>DISCOVER · ORDER · ENJOY</span><strong>Good food,<br />on the way.</strong></span>
+              <div class="art-order" aria-hidden="true"><div class="order-top"><span>CHOWDECK</span><b>● ● ●</b></div><div class="order-meal"><i></i><span><b>Fresh picks</b><small>Made for your day</small></span></div><div class="order-lines"><i></i><i></i><i></i></div><div class="order-cta">ORDER NOW <b>↗</b></div></div>
+              <span class="art-index">PICK · PLACE · DELIVER</span>
+            </div>
+            <div class="project-info">
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">FOOD ORDERING</p><h3>Chowdeck ordering experience</h3></div><div class="project-thumb"><img src="assets/projects/chowdeck.jpg" alt="Food-delivery app promotion with a phone showing the ordering experience" loading="lazy" decoding="async" /></div></div>
+              <p>A food-ordering experience focused on quick orders, mobile app discovery, and a clear first-order offer.</p>
+              <div class="project-bottom"><div class="tag-list"><span>Web</span><span>Food delivery</span><span>Responsive UI</span></div><a class="arrow-link" href="https://github.com/EzehLabs/Chowdeck-Clone-Project" target="_blank" rel="noreferrer" aria-label="View Chowdeck clone source code">↗</a></div>
+            </div>
+            <details class="project-detail"><summary>Project notes <span aria-hidden="true">+</span></summary><p><strong>Focus</strong> — make starting an order and finding the mobile app clear and easy for new customers.</p></details>
+          </article>
+
+          <article class="project-card" data-category="web">
             <div class="project-art-panel project-code-panel code-feedback" aria-label="Illustrated anonymous campus feedback project cover with a protected message card">
-              <span class="code-index">05 — WEB APPLICATION</span>
+              <span class="code-index">06 — WEB APPLICATION</span>
               <span class="art-project-label"><span>PERN STACK · PRIVACY FIRST</span><strong>Your voice,<br />your campus.</strong></span>
               <div class="art-message" aria-hidden="true"><span>CONFIDENTIAL MESSAGE</span><b>Share a concern<br />without sharing<br />your identity.</b><div><i></i><i></i><i></i><strong>ANONYMOUS <span>✓</span></strong></div></div>
               <span class="art-index">A SAFER SPACE TO BE HEARD</span>
@@ -190,13 +220,13 @@
 
           <article class="project-card" data-category="networking">
             <div class="project-art-panel project-code-panel code-network" aria-label="Illustrated network topology project cover with connected routers, switches, and data nodes">
-              <span class="code-index">06 — NETWORKING</span>
+              <span class="code-index">08 — NETWORKING</span>
               <span class="art-project-label"><span>CISCO · VLANS · ROUTING</span><strong>Connected<br />by design.</strong></span>
               <div class="art-network" aria-hidden="true"><div class="network-node node-core">CORE</div><div class="network-node node-router">R1</div><div class="network-node node-switch">SW1</div><div class="network-node node-server">SERVER</div><div class="network-node node-client">CLIENTS</div><span class="network-line line-a"></span><span class="network-line line-b"></span><span class="network-line line-c"></span><span class="network-line line-d"></span><span class="network-vlan">VLAN 10 &nbsp; / &nbsp; 20 &nbsp; / &nbsp; 99</span></div>
               <span class="art-index">SEGMENT · ROUTE · CONNECT</span>
             </div>
             <div class="project-info">
-              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">NETWORK DESIGN</p><h3>Campus network topology</h3></div><div class="project-thumb"><img src="assets/projects/network.svg" alt="Connected router, switch, server, and client network nodes" loading="lazy" decoding="async" /></div></div>
+              <div class="project-heading"><div class="project-heading-copy"><p class="project-kind">NETWORK DESIGN</p><h3>Campus network topology</h3></div><div class="project-thumb"><img src="assets/projects/campus-network.jpg" alt="Technician working on a wired network server rack" loading="lazy" decoding="async" /></div></div>
               <p>A routed campus network design with separate data, voice, and admin VLANs, shared services, and connected endpoints.</p>
               <div class="project-bottom"><div class="tag-list"><span>Cisco</span><span>VLANs</span><span>Routing</span></div><a class="arrow-link" href="#contact" aria-label="Ask about the campus network topology">↗</a></div>
             </div>

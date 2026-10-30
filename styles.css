@@ -127,6 +127,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .code-weed { --project-accent: #b6df7c; background-color: #172019; }
 .code-feedback { --project-accent: #f5a46f; background-color: #201815; }
 .code-network { --project-accent: #88c7f5; background-color: #151a20; }
+.code-traffic { --project-accent: #f3cf70; background-color: #1b201c; }
+.code-food { --project-accent: #ffbd52; background-color: #201c15; }
 .code-index { position: absolute; top: 17px; left: 19px; color: #b6b8ae; font: 8px var(--font-mono); letter-spacing: .08em; }
 .project-art-panel { --project-accent: #d7f566; }
 .art-project-label { position: absolute; z-index: 1; top: 50%; left: 8%; display: flex; max-width: 48%; flex-direction: column; gap: 14px; transform: translateY(-50%); }
@@ -143,6 +145,19 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .car-body::before { position: absolute; top: -25px; left: 23%; width: 50%; height: 29px; border: 1px solid rgba(215,245,102,.5); border-bottom: 0; border-radius: 48% 52% 0 0; background: linear-gradient(110deg, #414c40, #88977a 47%, #28322b); content: ""; }.car-body > i { position: absolute; bottom: -8px; left: 15%; width: 20px; height: 20px; border: 4px solid #22251b; border-radius: 50%; background: #999e7c; }.car-body > i:last-child { right: 15%; left: auto; }
 .car-plate { position: absolute; right: 14%; bottom: 19px; padding: 4px 7px; border: 1px solid var(--project-accent); background: #10130d; color: #f0f3db; font: 6px var(--font-mono); letter-spacing: .04em; }
 .art-detection { position: absolute; z-index: 1; top: 37%; right: 10%; display: flex; flex-direction: column; gap: 4px; padding: 6px 8px; border: 1px solid var(--project-accent); background: rgba(17,21,13,.83); color: #e6eddb; font: 6px var(--font-mono); }.art-detection span { color: var(--project-accent); }.art-detection b { font-weight: 400; }
+.art-street { position: absolute; top: 50%; right: 6%; width: 49%; height: 132px; overflow: hidden; border: 1px solid rgba(243,207,112,.3); background: linear-gradient(#242c29 0 52%, #354039 52% 56%, #30342f 56%); transform: translateY(-50%); }
+.street-building { position: absolute; inset: 0 0 45% 0; background: linear-gradient(90deg, transparent 10%, rgba(243,207,112,.12) 10% 12%, transparent 12% 30%, rgba(243,207,112,.1) 30% 32%, transparent 32% 65%, rgba(243,207,112,.12) 65% 67%, transparent 67%); }
+.street-road { position: absolute; inset: 56% 0 0; background: repeating-linear-gradient(90deg, transparent 0 18%, rgba(243,207,112,.5) 18% 19%, transparent 19% 38%); clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%); }
+.traffic-box { position: absolute; z-index: 1; top: 47%; width: 21px; height: 29px; border: 1px solid var(--project-accent); }
+.traffic-box-one { left: 36%; }.traffic-box-two { left: 62%; top: 54%; width: 28px; height: 23px; }
+.art-street > b { position: absolute; top: 10px; right: 8px; color: var(--project-accent); font: 5px var(--font-mono); }
+.art-order { position: absolute; top: 50%; right: 9%; display: flex; width: 43%; min-height: 155px; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid rgba(255,189,82,.48); border-radius: 5px; background: linear-gradient(145deg, #302a1f, #171813); box-shadow: 0 14px 36px rgba(0,0,0,.32); transform: translateY(-50%) rotate(2deg); }
+.order-top { display: flex; align-items: center; justify-content: space-between; color: #f5ead3; font: 6px var(--font-mono); }.order-top b { color: var(--project-accent); font-size: 5px; }
+.order-meal { display: flex; min-height: 42px; align-items: center; gap: 8px; padding: 6px; background: rgba(255,255,255,.055); }
+.order-meal > i { flex: 0 0 29px; width: 29px; height: 29px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, #f5d28f 0 22%, #d87539 24% 43%, #738c53 45% 58%, #30271d 60%); }
+.order-meal > span { display: flex; flex-direction: column; gap: 3px; color: #f5ead3; font: 6px var(--font-body); }.order-meal small { color: #b6ad98; font-size: 5px; }
+.order-lines { display: flex; flex-direction: column; gap: 4px; }.order-lines i { width: 84%; height: 2px; background: rgba(255,255,255,.16); }.order-lines i:nth-child(2) { width: 61%; }
+.order-cta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding: 6px 7px; background: var(--project-accent); color: #211b10; font: 6px var(--font-mono); }.order-cta b { font-size: 10px; }
 .art-device { position: absolute; top: 50%; right: 11%; display: flex; width: 35%; min-width: 118px; min-height: 130px; align-items: center; justify-content: center; border: 1px solid rgba(255,151,116,.55); border-radius: 6px; background: linear-gradient(140deg, #36302a, #171715); box-shadow: 0 15px 38px rgba(0,0,0,.38); transform: translateY(-50%) rotate(-4deg); }
 .device-screen { display: flex; width: 76%; flex-direction: column; gap: 7px; padding: 10px; border: 1px solid rgba(255,151,116,.25); background: #151a16; color: #d9e8d1; font: 6px var(--font-mono); }.device-screen small { color: #929e8e; font-size: 5px; }.device-screen b { color: #96df9a; font-size: 8px; }.device-screen i { color: #a7b3a5; font-size: 6px; font-style: normal; }
 .device-led { position: absolute; top: 8px; right: 10px; width: 5px; height: 5px; border-radius: 50%; background: #ff9774; box-shadow: 0 0 10px #ff9774; }.device-port { position: absolute; bottom: -5px; left: 50%; width: 19px; height: 5px; border-radius: 0 0 4px 4px; background: #45413a; transform: translateX(-50%); }
@@ -296,6 +311,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .art-receipt { right: 7%; min-width: 100px; min-height: 133px; padding: 10px; }
   .art-car { right: 4%; width: 49%; transform: translateY(-42%) scale(.9); }
   .art-detection { right: 7%; }
+  .art-street { right: 4%; width: 48%; height: 115px; }
+  .art-order { right: 5%; width: 45%; min-height: 136px; padding: 9px; }
   .art-device { right: 6%; min-width: 105px; }
   .art-leaf { right: 7%; transform: translateY(-47%) scale(.86) rotate(-15deg); }
   .art-plant-detection { right: 5%; min-width: 98px; }
